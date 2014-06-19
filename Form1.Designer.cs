@@ -71,18 +71,18 @@ namespace DummyTrack
             this.fileCBox = new System.Windows.Forms.ComboBox();
             this.recLabel = new System.Windows.Forms.Label();
             this.folderButton = new System.Windows.Forms.Button();
+            this.fEmulation = new System.Windows.Forms.TabPage();
+            this.emulationDescLabel2 = new System.Windows.Forms.Label();
+            this.emulationDescLabel = new System.Windows.Forms.Label();
+            this.emulationCheck = new System.Windows.Forms.CheckBox();
             this.log = new System.Windows.Forms.TabPage();
             this.logBox = new System.Windows.Forms.TextBox();
-            this.fEmulation = new System.Windows.Forms.TabPage();
-            this.emulationCheck = new System.Windows.Forms.CheckBox();
-            this.emulationDescLabel = new System.Windows.Forms.Label();
-            this.emulationDescLabel2 = new System.Windows.Forms.Label();
             this.tabs.SuspendLayout();
             this.randomize.SuspendLayout();
             this.recplay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.speedBar)).BeginInit();
-            this.log.SuspendLayout();
             this.fEmulation.SuspendLayout();
+            this.log.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
@@ -170,6 +170,7 @@ namespace DummyTrack
             // 
             // toText
             // 
+            this.toText.Enabled = false;
             this.toText.Location = new System.Drawing.Point(165, 156);
             this.toText.Name = "toText";
             this.toText.Size = new System.Drawing.Size(62, 20);
@@ -178,6 +179,7 @@ namespace DummyTrack
             // 
             // fromText
             // 
+            this.fromText.Enabled = false;
             this.fromText.Location = new System.Drawing.Point(68, 156);
             this.fromText.Name = "fromText";
             this.fromText.Size = new System.Drawing.Size(62, 20);
@@ -543,6 +545,48 @@ namespace DummyTrack
             this.folderButton.UseVisualStyleBackColor = true;
             this.folderButton.Click += new System.EventHandler(this.folderButton_Click);
             // 
+            // fEmulation
+            // 
+            this.fEmulation.Controls.Add(this.emulationDescLabel2);
+            this.fEmulation.Controls.Add(this.emulationDescLabel);
+            this.fEmulation.Controls.Add(this.emulationCheck);
+            this.fEmulation.Location = new System.Drawing.Point(4, 22);
+            this.fEmulation.Name = "fEmulation";
+            this.fEmulation.Size = new System.Drawing.Size(286, 242);
+            this.fEmulation.TabIndex = 3;
+            this.fEmulation.Text = "Flystick-Emulation";
+            this.fEmulation.UseVisualStyleBackColor = true;
+            // 
+            // emulationDescLabel2
+            // 
+            this.emulationDescLabel2.Location = new System.Drawing.Point(24, 103);
+            this.emulationDescLabel2.Name = "emulationDescLabel2";
+            this.emulationDescLabel2.Size = new System.Drawing.Size(240, 66);
+            this.emulationDescLabel2.TabIndex = 5;
+            this.emulationDescLabel2.Text = "The button mappings are:  F = Trigger; D = Right Button;  S = Middle Button; A = " +
+    "Left Button; The arrow buttons will add or subtract 0.1 to the value of the resp" +
+    "ective direction of the stick.";
+            // 
+            // emulationDescLabel
+            // 
+            this.emulationDescLabel.Location = new System.Drawing.Point(24, 33);
+            this.emulationDescLabel.Name = "emulationDescLabel";
+            this.emulationDescLabel.Size = new System.Drawing.Size(240, 44);
+            this.emulationDescLabel.TabIndex = 4;
+            this.emulationDescLabel.Text = "By checking the check box you will enable flystick emulation. With this you can e" +
+    "mulate flystick button presses with your keyboad.";
+            // 
+            // emulationCheck
+            // 
+            this.emulationCheck.AutoSize = true;
+            this.emulationCheck.Location = new System.Drawing.Point(27, 80);
+            this.emulationCheck.Name = "emulationCheck";
+            this.emulationCheck.Size = new System.Drawing.Size(145, 17);
+            this.emulationCheck.TabIndex = 3;
+            this.emulationCheck.Text = "Enable Flystick emulation";
+            this.emulationCheck.UseVisualStyleBackColor = true;
+            this.emulationCheck.CheckedChanged += new System.EventHandler(this.emulationCheck_CheckedChanged);
+            // 
             // log
             // 
             this.log.Controls.Add(this.logBox);
@@ -563,48 +607,6 @@ namespace DummyTrack
             this.logBox.Size = new System.Drawing.Size(286, 246);
             this.logBox.TabIndex = 1;
             // 
-            // fEmulation
-            // 
-            this.fEmulation.Controls.Add(this.emulationDescLabel2);
-            this.fEmulation.Controls.Add(this.emulationDescLabel);
-            this.fEmulation.Controls.Add(this.emulationCheck);
-            this.fEmulation.Location = new System.Drawing.Point(4, 22);
-            this.fEmulation.Name = "fEmulation";
-            this.fEmulation.Size = new System.Drawing.Size(286, 242);
-            this.fEmulation.TabIndex = 3;
-            this.fEmulation.Text = "Flystick-Emulation";
-            this.fEmulation.UseVisualStyleBackColor = true;
-            // 
-            // emulationCheck
-            // 
-            this.emulationCheck.AutoSize = true;
-            this.emulationCheck.Location = new System.Drawing.Point(27, 80);
-            this.emulationCheck.Name = "emulationCheck";
-            this.emulationCheck.Size = new System.Drawing.Size(145, 17);
-            this.emulationCheck.TabIndex = 3;
-            this.emulationCheck.Text = "Enable Flystick emulation";
-            this.emulationCheck.UseVisualStyleBackColor = true;
-            this.emulationCheck.CheckedChanged += new System.EventHandler(this.emulationCheck_CheckedChanged);
-            // 
-            // emulationDescLabel
-            // 
-            this.emulationDescLabel.Location = new System.Drawing.Point(24, 33);
-            this.emulationDescLabel.Name = "emulationDescLabel";
-            this.emulationDescLabel.Size = new System.Drawing.Size(240, 44);
-            this.emulationDescLabel.TabIndex = 4;
-            this.emulationDescLabel.Text = "By checking the check box you will enable flystick emulation. With this you can e" +
-    "mulate flystick button presses with your keyboad.";
-            // 
-            // emulationDescLabel2
-            // 
-            this.emulationDescLabel2.Location = new System.Drawing.Point(24, 103);
-            this.emulationDescLabel2.Name = "emulationDescLabel2";
-            this.emulationDescLabel2.Size = new System.Drawing.Size(240, 66);
-            this.emulationDescLabel2.TabIndex = 5;
-            this.emulationDescLabel2.Text = "The button mappings are:  F = Trigger; D = Right Button;  S = Middle Button; A = " +
-    "Left Button; The arrow buttons will add or subtract 0.1 to the value of the resp" +
-    "ective direction of the stick.";
-            // 
             // DummyTrack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,10 +623,10 @@ namespace DummyTrack
             this.recplay.ResumeLayout(false);
             this.recplay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.speedBar)).EndInit();
-            this.log.ResumeLayout(false);
-            this.log.PerformLayout();
             this.fEmulation.ResumeLayout(false);
             this.fEmulation.PerformLayout();
+            this.log.ResumeLayout(false);
+            this.log.PerformLayout();
             this.ResumeLayout(false);
 
         }

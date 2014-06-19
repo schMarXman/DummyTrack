@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DummyTrack
 {
+    /// <summary>
+    /// Class used to store matrices and generate fitting strings of them.
+    /// </summary>
     class Matrix
     {
         readonly float[] mat;

@@ -25,7 +25,9 @@ namespace DummyTrack
             rnd = new Random();
             matricesList = new ArrayList();
         }
-
+        /// <summary>
+        /// Generates a new random matrix and adds it to the matrices list.
+        /// </summary>
         public void GenerateMatrix()
         {
             int amount = sixds + flysticks;
@@ -41,6 +43,10 @@ namespace DummyTrack
             }
         }
 
+        /// <summary>
+        /// Forges and returns a DTrack like packet with a random matrix.
+        /// </summary>
+        /// <returns></returns>
         public String GenerateString()
         {
             string output = "fr " + frame + Environment.NewLine +
@@ -53,7 +59,11 @@ namespace DummyTrack
             matricesList.Clear();
             return output;
         }
-
+        /// <summary>
+        /// Reads a recording file and splits it into seperate packets.
+        /// </summary>
+        /// <param name="fileWPath">File and path of the recorded file</param>
+        /// <returns>Returns the recorded file splited into single strings.</returns>
         public string[] ReadFile(string fileWPath)
         {
             StreamReader sr = new StreamReader(fileWPath, Encoding.Default);
@@ -62,7 +72,11 @@ namespace DummyTrack
             string[] splitedFile = completeFile.Split(separator, StringSplitOptions.RemoveEmptyEntries);
             return splitedFile;           
         }
-
+        /// <summary>
+        /// Cleans up strings.
+        /// </summary>
+        /// <param name="strings">Strings to be cleaned up.</param>
+        /// <returns>Returns cleaned up strings.</returns>
         public string[] CleanUpStrings(string[] strings)
         {
             for (int i = 0; i < strings.Length; i++)
@@ -119,7 +133,11 @@ namespace DummyTrack
             Console.WriteLine(output);
             return output;        
         }
-
+        /// <summary>
+        /// Replaces strings tagged with "FLYSTICK" with the current button presses of the emulation. 
+        /// </summary>
+        /// <param name="mes">Message in which the emulation shall be integrated</param>
+        /// <returns>Returns the finished message.</returns>
         public string ReplaceFlystickWithEmulation(string mes)
         {
             string output = SetFlystickMarker(mes);
@@ -157,7 +175,11 @@ namespace DummyTrack
             }
             return strings;
         }
-
+        /// <summary>
+        /// Checks if the loaded file is an actual recording.
+        /// </summary>
+        /// <param name="file">Filename with path.</param>
+        /// <returns>Returns true if the file is a recording.</returns>
         public bool CheckFile(string file)
         {
             StreamReader sr = new StreamReader(file, Encoding.Default);
@@ -169,7 +191,13 @@ namespace DummyTrack
             return true;
 
         }
-
+        /// <summary>
+        /// Generates a random float between given min and max parameters.
+        /// </summary>
+        /// <param name="rng">"Random" object</param>
+        /// <param name="min">Minimum value</param>
+        /// <param name="max">Maximum value</param>
+        /// <returns></returns>
         public float RandomFloatFromTo(Random rng, float min, float max)
         {
             return min + (((float)rng.NextDouble()) * (max - min));

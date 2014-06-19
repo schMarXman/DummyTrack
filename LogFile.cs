@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DummyTrack
 {
+    /// <summary>
+    /// Container class for the combo box.
+    /// </summary>
     class LogFile
     {
 

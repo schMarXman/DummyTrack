@@ -35,7 +35,12 @@ namespace DummyTrack
             stringGen = new StringGenerator();
             log = new LogHandler(l);
         }
-
+        /// <summary>
+        /// Starts the random matrices thread and send it to opt_ip:port.
+        /// </summary>
+        /// <param name="port">Port</param>
+        /// <param name="opt_ip">Optional IP</param>
+        /// <param name="jam">NOT IMPLEMENTED</param>
         public void SendingStart(int port, string opt_ip = "127.0.0.1", bool jam = false)
         {
             running = true;
@@ -98,7 +103,12 @@ namespace DummyTrack
             connectionThread.IsBackground = true;
             connectionThread.Start();
         }
-
+        /// <summary>
+        /// Starts the recording thread to record incoming packets from DTrack2
+        /// </summary>
+        /// <param name="port">Port on which DTrack sends</param>
+        /// <param name="filePath">Filepath where the recording will be savec</param>
+        /// <param name="opt_ip">Optional IP</param>
         public void RecordingStart(int port, string filePath, string opt_ip = "127.0.0.1")
         {
             //string incomingString;
@@ -166,11 +176,19 @@ namespace DummyTrack
             }
         }
 
+        /// <summary>
+        /// Get the current time stamp.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static String GetTimestamp(DateTime value)
         {
             return value.ToString("yyyy-MM-dd-HH-mm-ss");
         }
 
+        /// <summary>
+        /// Stops the recording thread.
+        /// </summary>
         public void RecordingStop()
         {
             running = false;
@@ -184,6 +202,7 @@ namespace DummyTrack
             outputMessage = "";
         }
 
+        
         private void PlayingSocketStart(int port, string pathANDFile, string opt_ip = "127.0.0.1")
         {
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
@@ -222,6 +241,12 @@ namespace DummyTrack
             connectionThread.Start();
         }
 
+        /// <summary>
+        /// Starts a thread in which a recording is sent to the given IP and port.
+        /// </summary>
+        /// <param name="port">Port on which will be sent</param>
+        /// <param name="pathANDFile">File with its path</param>
+        /// <param name="opt_ip">Optional IP</param>
         public void PlayingStart(int port, string pathANDFile, string opt_ip = "127.0.0.1")
         {
             running = true;
@@ -229,6 +254,9 @@ namespace DummyTrack
             log.AddMessage("Sending " + pathANDFile + " to " + opt_ip + ":" + port);
         }
 
+        /// <summary>
+        /// Stops the sending of a record thread.
+        /// </summary>
         public void PlayingStop()
         {
             connectionThread.Abort();
@@ -266,6 +294,9 @@ namespace DummyTrack
             timestampThread.Start();
         }
 
+        /// <summary>
+        /// Stops the random sending thread
+        /// </summary>
         public void SendingStop()
         {
             timestampThread.Abort();

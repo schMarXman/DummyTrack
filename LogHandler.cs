@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace DummyTrack
 {
+    /// <summary>
+    /// This class handles inputs into the log text field.
+    /// </summary>
     class LogHandler
     {
         private TextBox box;
